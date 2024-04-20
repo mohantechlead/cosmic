@@ -1,26 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import Landing from './components/Landing';
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import ParticlesBackground from "./components/ParticlesBackground";
-
+import Landing from './components/Landing';
+import Login from './pages/Login';
+import SideBar from './components/SideBar';
+import CustomerForm from "./pages/CreateCustomer";
 
 function App() {
   return (
-    // <div>
-    //   <BrowserRouter>
-    //   <Routes>
-    //     <Route path = "/" element = {<Landing />} />
-    //   </Routes>
-    //   </BrowserRouter>
-     
-    // </div>
-    <div className='App'>
-    <ParticlesBackground />
-    <div className='particlesheader'>
-      <h1>Paridh</h1>
-    </div>
-    </div>
+   <BrowserRouter>
+   <Routes>
+    <Route path='/' element={<Landing />} />
+    <Route path='/login' element={<Login />} />
+    <Route path='/sidebar' element={<SideBar />} />
+    <Route path='/customer/create' element={<CustomerForm />} />
+   </Routes>
+   </BrowserRouter>
   );
 }
 

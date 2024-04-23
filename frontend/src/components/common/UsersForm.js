@@ -9,12 +9,14 @@ function UsersForm ({template}){
 
     const renderFields = (fields) => {
       return fields.map(field => {
-        let {title, type, name, placeholder, style} = field;
+        let {title, type, name, placeholder, style, onchange, value} = field;
         return (
           <div key={name} >
             <label htmlFor='{name}' className='input-label'>{title}</label>
             <br />
-            <input className={style} type='text' placeholder={placeholder} name={name} id={name} ref={register("name")}></input>
+            <input className={style} type='text' placeholder={placeholder} name={name} id={name} ref={register("name")}
+                    value={value} onchange= {onchange}
+            ></input>
           </div>
         )
       })
@@ -25,7 +27,7 @@ function UsersForm ({template}){
           <div>
             <SideBar />
           </div>
-          <div className='mt-4'>
+          <div className='mt-4 flex'>
         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col'>
             <h1 className='text'>{title}</h1>
             <div className='mt-10'>

@@ -17,21 +17,26 @@ class CreateUserView(generics.CreateAPIView):
 class CreateCustomerView(generics.CreateAPIView):
     serializer_class = CustomerProfileSerializer
     permission_classes = [IsAuthenticated]
-    queryset = CustomerProfiles.objects.all()
-    # authentication_classes = [JWTAuthentication]
+   
 
-    # def get_queryset(self):
+    # def get(self):
     #     user = self.request.user
-    #     return CustomerProfiles.objects.all()
+    #     return CustomerProfiles.objects.filter(user)
 
-    def retrieve(self, request, pk=None):
-        customer = self.queryset.get(pk=pk)
-        serializer = self.serializer_class(customer)
+    def get(self, request):
+        customer = CustomerProfiles.objects.all()
+        serializer = self.serializer_class(customer, many=True)
         return Response(serializer.data)
-    
+
     def perform_create(self, serializer):
         if serializer.is_valid():
             serializer.save(author=self.request.user)
         else:
             print(serializer.errors)
+
+    def delete_cus(request,customer_id):
+       customer = CustomerProfiles.objects.get(pk=customer_id)
+       customer.delete()
+
+   
   

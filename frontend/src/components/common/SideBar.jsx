@@ -5,15 +5,13 @@ import { useState } from "react";
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import MenuIcon from '@mui/icons-material/Menu';
 
-
-
 const SideBar = () => {
     const [subNav, setsubNav] = useState(-1)
     const [open, setOpen] = useState(true)
     
     return (
         <div className="flex">
-            <div className={`${open ? "w-72" : "w-16"} h-screen bg-blue text-grey pt-16`}   >
+            <div className={`${open ? "w-72" : "w-16"} h-full min-h-screen bg-blue text-grey pt-16`}   >
                 <ul className="">
                     <li className="cursor-pointer text-center"> <MenuIcon onClick= { () => setOpen(!open)}/> </li>
                     <br />

@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
-import Landing from './components/Landing';
-import Login from './pages/Login';
-import SideBar from './components/SideBar';
-import CustomerForm from "./pages/CreateCustomer";
-import CreateUser from "./pages/CreateUser";
 import ProtectedRoute from "./routes/ProtectedRoute";
+import CreateCustomers from "./pages/Customers/CreateCusomers";
+import Login from "./pages/Auth/Login";
+import Landing from "./components/common/Landing"
+import SideBar from "./components/common/SideBar"
+import DisplayCustomers from "./pages/Customers/DisplayCustomers";
 
 function App() {
   return (
@@ -13,16 +13,9 @@ function App() {
     <Routes>
     <Route path='/' element={<Landing />} />
     <Route path='/login' element={<Login />} />
-    <Route
-          path="/sidebar"
-          element={
-            <ProtectedRoute>
-              <SideBar />
-            </ProtectedRoute>
-          }
-        /> 
-    <Route path='/customer/create' element={<CustomerForm />} />
-    <Route path='/user/create' element={<CreateUser />} />
+    <Route path="/sidebar" element={<ProtectedRoute> <SideBar /> </ProtectedRoute>}/> 
+    <Route path='/customer/create' element={ <ProtectedRoute><CreateCustomers /></ProtectedRoute>} />
+    <Route path='/customer/display' element={ <ProtectedRoute><DisplayCustomers /></ProtectedRoute>} />
     </Routes>
    </BrowserRouter>
     </div>

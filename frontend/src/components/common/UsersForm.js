@@ -1,6 +1,6 @@
 import React from 'react'
 import {useForm} from 'react-hook-form';
-import SideBar from '../SideBar';
+import SideBar from '../common/SideBar';
 
 function UsersForm ({template}){
 

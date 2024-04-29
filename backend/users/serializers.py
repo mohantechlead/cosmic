@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import CustomerProfiles
+from .models import CustomerProfiles, SupplierProfiles
 
 from django.contrib.auth.models import User
 from rest_framework import serializers
@@ -20,4 +20,10 @@ class CustomerProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomerProfiles
         fields = ('customer_id', 'customer_name', 'customer_address', 'contact_person', 'phone_number', 'email', 'comments', 'date', 'author')
+        extra_kwargs = {"author": {"read_only": True}}
+
+class SupplierProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SupplierProfiles
+        fields = ('supplier_id', 'supplier_name', 'supplier_address', 'contact_person', 'supplier_phone', 'email', 'comments', 'date', 'author')
         extra_kwargs = {"author": {"read_only": True}}

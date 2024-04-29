@@ -2,18 +2,18 @@ import SideBar from "../../components/common/SideBar";
 import { useEffect, useState } from "react";
 import api from '../../api'
 
-function DisplayCustomers(){
-    const [customer, setCustomer] = useState([]);
+function DisplaySupplier(){
+    const [supplier, setSupplier] = useState([]);
 
     const GetData = () => {
-        api.get("customer/")
+        api.get("supplier/")
            .then((res) => res.data)
-           .then((data) => {setCustomer(data);})
+           .then((data) => {setSupplier(data);})
            .catch((err) => alert(err));
     }
 
-    const deleteCustomer = (customer_id) => {
-      api.delete('customer/'+customer_id)
+    const deleteCustomer = (supplier_id) => {
+      api.delete(`${supplier_id}/`)
       .then(() => {
         alert("Data has been deleted")
       })     
@@ -29,7 +29,7 @@ function DisplayCustomers(){
           </div>
           <div className=''>
        
-        <h1 className="text">Customers</h1>
+        <h1 className="text">Suppliers</h1>
         <table className="tableC">
           <thead className="table-head">
             <tr className="table-row">
@@ -45,19 +45,19 @@ function DisplayCustomers(){
           </thead>
           <tbody>
             {
-              customer.map((user, index) => {
+              supplier.map((user, index) => {
                 return <tr key={index}>
-                  <td className="f-body-row">{user.customer_id}</td>
-                  <td className="body-row">{user.customer_name}</td>
+                  <td className="f-body-row">{user.supplier_id}</td>
+                  <td className="body-row">{user.supplier_name}</td>
                   <td className="body-row">{user.email}</td>
-                  <td className="body-row">{user.phone_number}</td>
+                  <td className="body-row">{user.supplier_phone}</td>
                   <td className="body-row">{user.contact_person}</td>
-                  <td className="body-row">{user.customer_address}</td>
+                  <td className="body-row">{user.supplier_address}</td>
                   <td className="body-row">{user.date}</td>
                   <tr className="body-row">
                   <td><button className="view-btn">View</button></td>
                   <td><button className="edit-btn">Edit</button></td>
-                  <td><button className="delete-btn" onClick={() => deleteCustomer(user.customer_id)}>Delete</button></td>
+                  <td><button className="delete-btn" onClick={() => deleteCustomer(user.supplier_id)}>Delete</button></td>
                   </tr>
                   
                 </tr>
@@ -71,4 +71,4 @@ function DisplayCustomers(){
     )
 }
 
-export default DisplayCustomers
+export default DisplaySupplier

@@ -53,11 +53,11 @@ export const SideBarData = [
         icon: <GroupIcon />,
         subTitle: [
             {
-                title: 'Create Customer',
+                title: 'Create',
                 link:  '/customer/create', 
             }, 
             {
-                title: 'Display Customer',
+                title: 'Display',
                 link:  '/customer/display',
             }
         ]
@@ -68,11 +68,11 @@ export const SideBarData = [
         icon: <ShoppingCartIcon />,
         subTitle: [
             {
-                title: 'Create Supplier',
+                title: 'Create',
                 link:  '/supplier/create', 
             }, 
             {
-                title: 'Display Suppplier',
+                title: 'Display',
                 link:  '/supplier/display',
             }
         ]
@@ -97,11 +97,11 @@ export const SideBarData = [
         icon: <AddShoppingCartIcon />,
         subTitle: [
             {
-                title: 'Create Supplier',
+                title: 'Create',
                 link:  '/purchase/create', 
             }, 
             {
-                title: 'Display Suppplier',
+                title: 'Display',
                 link:  '/purchase/display',
             }
         ]
